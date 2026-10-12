@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <title>Gemini AI Tutor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">✦</div>
+        <div>
+          <div class="brand-name">AI ChatBot</div>
+          <div class="brand-caption">Powered by Gemini</div>
+        </div>
+      </div>
+
+      <button class="new-chat-btn" id="newChatBtn" type="button">
+        <span class="plus">＋</span> New conversation
+      </button>
+
+      <div class="sidebar-section-label">TRY ASKING</div>
+      <button class="suggestion" data-prompt="Explain HTML in simple English with an example.">
+        <span class="suggestion-icon">⌘</span>
+        <span><strong>Web development</strong><small>Learn HTML, CSS and JavaScript</small></span>
+      </button>
+      <button class="suggestion" data-prompt="Explain Python loops with beginner-friendly examples.">
+        <span class="suggestion-icon">⌁</span>
+        <span><strong>Learn programming</strong><small>Understand concepts step by step</small></span>
+      </button>
+      <button class="suggestion" data-prompt="Explain machine learning and give me a simple real-world example.">
+        <span class="suggestion-icon">◈</span>
+        <span><strong>AI & machine learning</strong><small>Explore AI concepts</small></span>
+      </button>
+
+      <div class="sidebar-bottom">
+        <div class="status-dot"></div>
+        <span>AI tutor ready</span>
+        <div class="sidebar-version">v1.0</div>
+      </div>
+    </aside>
+
+    <main class="main-panel">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Toggle menu" type="button">☰</button>
+        <div class="topbar-title">
+          <span class="topbar-heading">AI Learning Space</span>
+          <span class="topbar-subtitle">Ask anything. Learn something new.</span>
+        </div>
+        <div class="model-pill"><span class="live-dot"></span> Gemini</div>
+      </header>
+
+      <section class="chat-area" id="chatArea" aria-live="polite">
+        <div class="welcome" id="welcome">
+          <div class="welcome-orb"><span>✦</span></div>
+          <p class="eyebrow">YOUR PERSONAL AI TUTOR</p>
+          <h1>What would you like<br><span>to learn today?</span></h1>
+          <p class="welcome-copy">Ask a question, explore a new topic, or get help understanding a tricky concept.</p>
+          <div class="prompt-grid">
+            <button class="prompt-card" data-prompt="What is HTML and how does it work?">
+              <span class="prompt-symbol purple">⌘</span>
+              <span><strong>What is HTML?</strong><small>Start with the basics of the web</small></span>
+              <span class="card-arrow">↗</span>
+            </button>
+            <button class="prompt-card" data-prompt="Teach me Python functions with examples.">
+              <span class="prompt-symbol blue">ƒ</span>
+              <span><strong>Learn Python functions</strong><small>Understand reusable code</small></span>
+              <span class="card-arrow">↗</span>
+            </button>
+            <button class="prompt-card" data-prompt="What is a transformer in AI? Explain self-attention simply.">
+              <span class="prompt-symbol pink">✳</span>
+              <span><strong>Explore transformers</strong><small>Discover how modern AI works</small></span>
+              <span class="card-arrow">↗</span>
+            </button>
+            <button class="prompt-card" data-prompt="Help me make a practical study plan for learning machine learning.">
+              <span class="prompt-symbol orange">◷</span>
+              <span><strong>Build a study plan</strong><small>Make learning more structured</small></span>
+              <span class="card-arrow">↗</span>
+            </button>
+          </div>
+        </div>
+        <div class="messages" id="messages"></div>
+      </section>
+
+      <footer class="composer-wrap">
+        <form class="composer" id="chatForm">
+          <textarea id="messageInput" rows="1" placeholder="Message Nova Tutor..." aria-label="Your message"></textarea>
+          <div class="composer-bottom">
+            <span class="composer-hint"><span class="sparkle">✦</span> Clear questions get better answers</span>
+            <button class="send-btn" id="sendBtn" type="submit" aria-label="Send message">
+              <span>Send</span><span class="send-arrow">↑</span>
+            </button>
+          </div>
+        </form>
+        <p class="disclaimer">AI can make mistakes. Check important information with reliable sources.</p>
+      </footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
